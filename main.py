@@ -116,7 +116,7 @@ def menu():
 
         print("\n1. Run Mechanistic Simulation")
         print("2. Optimize Algae Dose")
-        print("3. Check Health Constraints")
+        print("3. Validate Model")
         print("4. Sensitivity Analysis")
         print("5. Exit")
 
@@ -126,7 +126,10 @@ def menu():
 
         if choice == "1":
 
-            run_simulator(shared_parameters)
+            results = run_simulator(shared_parameters)
+
+            if results is not None:
+                shared_parameters.update(results)
             pause()
 
         elif choice == "2":

@@ -209,7 +209,10 @@ def main(parameters=None):
 
     print("\nMost influential parameters:")
 
-    print(summary)
+    print("\nParameter importance (highest impact first):")
+
+    for parameter, value in summary.items():
+        print(f"{parameter:<10} {value:.2f}%")
 
     print("\nFiles generated:")
 

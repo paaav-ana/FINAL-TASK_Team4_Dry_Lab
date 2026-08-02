@@ -452,7 +452,12 @@ def main(parameters=None):
     print("  methane.png")
     print("  hydrogen.png")
 
-    return results
+    return {
+    "methane_reduction": reduction,
+    "final_methanogens": M[-1],
+    "final_peir": P[-1],
+    "hydrogen": H,
+}
 
 
 if __name__ == "__main__":

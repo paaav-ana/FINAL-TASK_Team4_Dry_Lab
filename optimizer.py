@@ -133,12 +133,21 @@ def main(parameters=None):
     best_dose = None
     best_reduction = None
 
+    maximum_reduction = -float("inf")
+    maximum_dose = None
+
     for dose in doses:
 
         reduction = simulate(parameters, dose)
 
         reductions.append(reduction)
 
+        # Track the best overall result
+        if reduction > maximum_reduction:
+            maximum_reduction = reduction
+            maximum_dose = dose
+
+        # First dose that reaches the target
         if best_dose is None and reduction >= target:
             best_dose = dose
             best_reduction = reduction
@@ -182,7 +191,21 @@ def main(parameters=None):
     else:
 
         print("\nTarget reduction was not reached.")
-        print("Consider increasing the maximum dose or modifying biological parameters.")
+
+        print(
+            f"Maximum reduction achieved: "
+            f"{maximum_reduction:.2f}%"
+        )
+
+        print(
+            f"Best dose tested: "
+            f"{maximum_dose:.2f} g/day"
+        )
+
+        print(
+            "Consider increasing the maximum dose "
+            "or modifying biological parameters."
+        )
 
     plt.xlabel("Dose (g/day)")
     plt.ylabel("Methane Reduction (%)")
