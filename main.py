@@ -73,7 +73,7 @@ def setup():
     )
 
     shared_parameters["KH"] = float(
-        input("Hydrogen half-saturation KH (µM) [1.38]: ") or 1.38
+        input("Hydrogen half-saturation KH (uM) [1.38]: ") or 1.38
     )
 
     shared_parameters["K"] = float(
@@ -83,11 +83,11 @@ def setup():
     print("\n--- Hydrogen Parameters ---")
 
     shared_parameters["H0"] = float(
-        input("Basal hydrogen (µM) [1.38]: ") or 1.38
+        input("Basal hydrogen (uM) [1.38]: ") or 1.38
     )
 
     shared_parameters["H_spike"] = float(
-        input("Hydrogen spike (µM) [15]: ") or 15
+        input("Hydrogen spike (uM) [15]: ") or 15
     )
 
     shared_parameters["spike_duration"] = float(
