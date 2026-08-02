@@ -44,7 +44,7 @@ def validate(parameters):
 
     report["Feed frequency > 0"] = ff > 0
 
-    report["Feed frequency within calibrated range (1–8/day)"] = (
+    report["Feed frequency within calibrated range (1-8/day)"] = (
         1 <= ff <= 8
     )
 
